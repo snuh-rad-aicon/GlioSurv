@@ -1,0 +1,56 @@
+proj_name: GlioSurv
+
+model_name: GlioSurv
+trainer_name: GlioSurvTrainer
+dataroot: path/to/data
+
+batch_size: 384
+vis_batch_size: 2048
+start_epoch: 0
+warmup_epochs: 10
+epochs: 1000
+workers: 8
+pretrain: 
+resume:
+
+# model
+patchembed: 'PatchEmbed3D'
+pos_embed_type: 'sincos'
+mask_ratio: 0.125
+input_size: [160, 192, 40]
+patch_size: [16, 16, 8]
+in_chans: 4
+vision_pretrain: path/to/vit3d_model/checkpoint.pth.tar
+
+# optimizer
+type: adamw
+lr: 1e-3
+beta1: 0.9
+beta2: 0.999
+weight_decay: 0.01
+layer_decay: 0.75
+
+# eval
+eval_metric: c_index
+eval_freq: 1
+
+# logging
+vis_freq: 100
+save_freq: 100
+print_freq: 1
+
+# distributed processing
+gpu: 0
+dist_url: 'tcp://localhost:10001'
+world_size: 1
+multiprocessing_distributed: false
+dist_backend: nccl
+distributed:
+rank: 0
+ngpus_per_node:
+
+# randomness
+seed: 666
+
+# debugging
+debug: false

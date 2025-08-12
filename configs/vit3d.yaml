@@ -1,0 +1,48 @@
+proj_name: GlioSurv
+
+model_name: ViT3D
+trainer_name: ViT3DTrainer
+dataroot: path/to/data
+
+batch_size: 16
+vis_batch_size: 48
+start_epoch: 0
+warmup_epochs: 10
+epochs: 1000
+workers: 8
+pretrain: 
+resume:
+
+patchembed: 'PatchEmbed3D'
+pos_embed_type: 'sincos'
+mask_ratio: 0.125
+input_size: [160, 192, 40]
+patch_size: [16, 16, 8]
+in_chans: 4
+
+type: adamw
+lr: 6e-6
+beta1: 0.9
+beta2: 0.999
+weight_decay: 0.005
+layer_decay: 0.75
+
+eval_metric: c_index
+eval_freq: 1
+
+vis_freq: 100
+save_freq: 100
+print_freq: 1
+
+gpu: 0
+dist_url: 'tcp://localhost:10001'
+world_size: 1
+multiprocessing_distributed: false
+dist_backend: nccl
+distributed:
+rank: 0
+ngpus_per_node:
+
+seed: 666
+
+debug: false
