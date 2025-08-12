@@ -15,7 +15,7 @@ This repository contains the official implementation for the paper, including co
 
 1.  Clone the repository:
     ```bash
-    git clone https://github.com/your-username/GlioSurv_github.git
+    git clone https://github.com/snuh-rad-aicon/GlioSurv.git
     cd GlioSurv_github
     ```
 
