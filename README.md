@@ -24,6 +24,10 @@ This repository contains the official implementation for the paper, including co
     pip install -r requirements.txt
     ```
 
+## Pre-trained Models
+
+The pre-trained weights for the GlioSurv model will be uploaded upon publication of the manuscript.
+
 ## Usage
 
 ### Data Preprocessing
