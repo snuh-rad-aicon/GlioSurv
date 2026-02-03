@@ -24,7 +24,7 @@ def set_seed(seed=None):
         random.seed(seed)
         torch.manual_seed(seed)
         torch.cuda.manual_seed(seed)
-        torch.cuda.manual_seed_all(seed)  # 멀티 GPU 용
+        torch.cuda.manual_seed_all(seed)  # for multi-GPU
         np.random.seed(seed)
         
         # Set deterministic settings

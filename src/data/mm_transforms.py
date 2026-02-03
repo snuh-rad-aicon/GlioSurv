@@ -211,30 +211,23 @@ description_indices = {
     "kps": 4
 }
 
-# 토크나이저 적용 함수 (토크나이저를 실제로 적용할 때 사용)
 def get_tokenized_diff_index(text, diff_word, tokenizer):
     """
-    토크나이저를 적용하여 차이나는 단어의 실제 토큰 인덱스를 찾습니다.
-    
+    Find the token index where the differing word starts after tokenization.
+
     Args:
-        text (str): 전체 텍스트
-        diff_word (str): 차이나는 단어
-        tokenizer: 사용할 토크나이저
-        
+        text (str): Full text string.
+        diff_word (str): The word that differs.
+        tokenizer: Tokenizer to use.
+
     Returns:
-        int: 토큰화 후 차이나는 단어의 시작 인덱스
+        int: Start index of the differing word after tokenization, or -1 if not found.
     """
-    # 토큰화
     tokens = tokenizer.tokenize(text)
-    
-    # 차이나는 단어를 포함하는 토큰 찾기
     for i, token in enumerate(tokens):
-        # 토크나이저에 따라 subword 토큰화가 다를 수 있음
-        # 차이나는 단어가 시작되는 토큰 인덱스 반환
+        # Subword tokenization may vary by tokenizer
         if diff_word in token or token in diff_word:
             return i
-    
-    # 찾지 못한 경우
     return -1
 
 def transform_label(label_dict):
