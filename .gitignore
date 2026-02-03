@@ -93,10 +93,10 @@ dmypy.json
 # Pyre type checker
 .pyre/
 
-# Models and data
-data/
-models/
-results/
+# Models and data (root-level only; src/data and src/models are source code)
+/data/
+/models/
+/results/
 *.pth
 *.pt
 *.onnx
