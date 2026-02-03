@@ -157,7 +157,7 @@ class GlioSurvTrainer(BaseTrainer):
                     {
                         'epoch': epoch + 1,
                         'model_name': args.model_name,
-                        'state_dict': {k: v for k, v in self.model.state_dict().items() if not k.startswith('vision_encoder')},
+                        'state_dict': self.model.state_dict(),
                         'optimizer': self.optimizer.state_dict(),
                     }, 
                     filename=f'{args.ckpt_dir}/best_c_index.pth.tar'
@@ -168,7 +168,7 @@ class GlioSurvTrainer(BaseTrainer):
                         {
                             'epoch': epoch + 1,
                             'model_name': args.model_name,
-                            'state_dict': {k: v for k, v in self.model.state_dict().items() if not k.startswith('vision_encoder')},
+                            'state_dict': self.model.state_dict(),
                             'optimizer' : self.optimizer.state_dict(),
                         }, 
                         filename=f'{args.ckpt_dir}/checkpoint_{epoch:04d}.pth.tar'

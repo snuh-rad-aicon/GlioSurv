@@ -1,15 +1,40 @@
-# GlioSurv: A Multimodal Transformer for Personalized Survival Prediction in Adult Diffuse Glioma
+# GlioSurv: Interpretable Transformer for Multimodal, Individualized Survival Prediction in Diffuse Glioma
 
-GlioSurv is a multimodal transformer model for personalized survival prediction in adult diffuse glioma. It integrates multiparametric MRI, clinical data, molecular markers, and treatment information to provide accurate risk stratification.
+[![DOI](https://img.shields.io/badge/DOI-10.1038%2Fs41746--025--02018--x-blue)](https://doi.org/10.1038/s41746-025-02018-x)
 
-This repository contains the official implementation for the paper, including code for data preprocessing, training, and inference.
+GlioSurv is an interpretable multimodal transformer for personalized survival prediction in adult diffuse glioma. It integrates multiparametric MRI, clinical data, molecular markers, and treatment information to provide accurate risk stratification.
+
+This repository contains the official implementation for the paper *[GlioSurv: interpretable transformer for multimodal, individualized survival prediction in diffuse glioma](https://doi.org/10.1038/s41746-025-02018-x)* (npj Digital Medicine, 2025).
+
+## Citation
+
+This is the **official implementation** of **GlioSurv**, published in *npj Digital Medicine*. If you find this code or the pre-trained weights useful, please cite our paper:
+
+> **GlioSurv: interpretable transformer for multimodal, individualized survival prediction in diffuse glioma**, *npj Digital Medicine*, 2025.  
+> [https://doi.org/10.1038/s41746-025-02018-x](https://doi.org/10.1038/s41746-025-02018-x)
+
+```bibtex
+@article{lee2025gliosurv,
+  title={GlioSurv: interpretable transformer for multimodal, individualized survival prediction in diffuse glioma},
+  author={Lee, Junhyeok and Jang, Joon and Eum, Heeseong and Jang, Han and Kim, Minchul and Park, Sung Hye and Park, Chul Kee and Choi, Seung Hong and Ahn, Sung Soo and Han, Yoseob and others},
+  journal={npj Digital Medicine},
+  volume={8},
+  number={1},
+  pages={660},
+  year={2025},
+  publisher={Nature Publishing Group UK London},
+  doi={10.1038/s41746-025-02018-x},
+  url={https://doi.org/10.1038/s41746-025-02018-x}
+}
+```
 
 ## Requirements
 
 - Python 3.8+
-- PyTorch
-- MONAI
-- ... (add other requirements)
+- PyTorch (with CUDA for GPU training)
+- MONAI, nibabel (medical imaging)
+- PyTorch Lightning, torchmetrics, torchsurv
+- See `requirements.txt` for the full list.
 
 ## Installation
 
@@ -24,9 +49,11 @@ This repository contains the official implementation for the paper, including co
     pip install -r requirements.txt
     ```
 
-## Pre-trained Models
+### 🚀 Pre-trained Weights
 
-The pre-trained weights for the GlioSurv model will be uploaded upon publication of the manuscript.
+The official pre-trained checkpoints for GlioSurv are available on **[GitHub Releases (v1.0)](https://github.com/snuh-rad-aicon/GlioSurv/releases/tag/v1.0)**.
+
+Please download the files from the release page and place them in your designated model directory. Use the GlioSurv checkpoint for inference (e.g. `--pretrain` in `scripts/inference.sh`). Optionally, the ViT-3D checkpoint can be used to initialize the vision encoder when training GlioSurv from scratch (set `vision_pretrain` in `configs/gliosurv.yaml`).
 
 ## Usage
 
